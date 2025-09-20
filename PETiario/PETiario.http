@@ -1,0 +1,6 @@
+@PETiario_HostAddress = http://localhost:5216
+
+GET {{PETiario_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
