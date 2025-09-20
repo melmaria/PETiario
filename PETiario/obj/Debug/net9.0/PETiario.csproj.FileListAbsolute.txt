@@ -167,3 +167,4 @@ C:\CsharpProjects\PETiario\PETiario\obj\Debug\net9.0\refint\PETiario.dll
 C:\CsharpProjects\PETiario\PETiario\obj\Debug\net9.0\PETiario.pdb
 C:\CsharpProjects\PETiario\PETiario\obj\Debug\net9.0\PETiario.genruntimeconfig.cache
 C:\CsharpProjects\PETiario\PETiario\obj\Debug\net9.0\ref\PETiario.dll
+C:\CsharpProjects\PETiario\PETiario\obj\Debug\net9.0\PETiario.sourcelink.json
