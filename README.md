@@ -19,7 +19,7 @@ The goal is to provide a simple and centralized place for pet owners to monitor 
 - ASP.NET Core  
 - Entity Framework Core  
 - C#  
-- (Add any other tech here, e.g., SQL Server, React, Blazor, etc.)
+- SQLlite
 
 ---
 
