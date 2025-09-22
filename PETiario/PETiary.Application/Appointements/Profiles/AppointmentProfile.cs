@@ -10,8 +10,8 @@ namespace PETiario.PETiary.Application.Appointements.Profiles
     {
         public AppointmentProfile()
         {
-            CreateMap<Appointment, AppointmentsResponse>();
-            CreateMap<AppointmentsRequest, Appointment>();
+            CreateMap<Appointment, AppointmentResponse>();
+            CreateMap<AppointmentRequest, Appointment>();
         }
         
     }

@@ -13,7 +13,7 @@ namespace PETiario.PETiary.Application.Appointements.Services
         ILogger<AppointmentApplication> logger,
         IMapper mapper) : IAppointmentApplication
     {
-        public async Task CreateAsync(AppointmentsRequest appointmentsRequest, CancellationToken cancellationToken = default)
+        public async Task CreateAsync(AppointmentRequest appointmentsRequest, CancellationToken cancellationToken = default)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace PETiario.PETiary.Application.Appointements.Services
             }
         }
 
-        public async Task<AppointmentsResponse> UpdateAsync(int id, AppointmentsRequest appointmentsRequest, CancellationToken cancellationToken = default)
+        public async Task<AppointmentResponse> UpdateAsync(int id, AppointmentRequest appointmentsRequest, CancellationToken cancellationToken = default)
         {
             try
             {
@@ -39,13 +39,13 @@ namespace PETiario.PETiary.Application.Appointements.Services
                     throw new ArgumentNullException("Invalid id.", nameof(id));
 
                 var repository = unitOfWork.GetRepository<Appointment>();
-                var existing = await repository.FindAsync(id, cancellationToken)
+                Appointment appointment = await repository.FindAsync(id, cancellationToken)
                     ?? throw new KeyNotFoundException("Appointment not found.");
                     
-                mapper.Map(appointmentsRequest, existing);
-                repository.Update(existing);
+                mapper.Map(appointmentsRequest, appointment);
+                repository.Update(appointment);
                 await unitOfWork.SaveChangesAsync();
-                return mapper.Map<AppointmentsResponse>(existing);
+                return mapper.Map<AppointmentResponse>(appointment);
             }
             catch (Exception ex)
             {
@@ -62,9 +62,9 @@ namespace PETiario.PETiary.Application.Appointements.Services
                     throw new ArgumentNullException("Invalid id.", nameof(id)); 
 
                 var repository = unitOfWork.GetRepository<Appointment>();   
-                var existing = await repository.FindAsync(id, cancellationToken) 
+                Appointment appointment = await repository.FindAsync(id, cancellationToken) 
                     ?? throw new KeyNotFoundException("Appointment not found.");
-                repository.Delete(existing);
+                repository.Delete(appointment);
                 await unitOfWork.SaveChangesAsync();
             }
             catch (Exception ex)
@@ -74,23 +74,23 @@ namespace PETiario.PETiary.Application.Appointements.Services
             }
         }
 
-        public async Task<IEnumerable<AppointmentsResponse>> GetAllAsync(CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<AppointmentResponse>> GetAllAsync(CancellationToken cancellationToken = default)
         {
             var repository = unitOfWork.GetRepository<Appointment>();
-            var appointments = await repository.GetAll()
+            IEnumerable<Appointment> appointments = await repository.GetAll()
                 .ToListAsync(cancellationToken);
-            return mapper.Map<IEnumerable<AppointmentsResponse>>(appointments);
+            return mapper.Map<IEnumerable<AppointmentResponse>>(appointments);
         }
 
-        public async Task<AppointmentsResponse> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<AppointmentResponse> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             if (id <= 0)
                 throw new ArgumentNullException("Invalid id.", nameof(id));   
 
             var repository = unitOfWork.GetRepository<Appointment>();
-            var appointment = await repository.FindAsync(id, cancellationToken) 
+            Appointment appointment = await repository.FindAsync(id, cancellationToken) 
                 ?? throw new KeyNotFoundException("Appointment not found.");
-            return mapper.Map<AppointmentsResponse>(appointment);
+            return mapper.Map<AppointmentResponse>(appointment);
             
         }
     }

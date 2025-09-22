@@ -7,9 +7,9 @@ namespace PETiario.PETiary.Application.Appointements.Services.Interfaces
     public interface IAppointmentApplication
     {
         Task DeleteAsync(int id, CancellationToken cancellationToken = default);
-        Task<AppointmentsResponse> UpdateAsync(int id, AppointmentsRequest appointmentsRequest, CancellationToken cancellationToken = default);
-        Task CreateAsync(AppointmentsRequest appointmentsRequest, CancellationToken cancellationToken = default);
-        Task<IEnumerable<AppointmentsResponse>> GetAllAsync(CancellationToken cancellationToken = default);
-        Task<AppointmentsResponse> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+        Task<AppointmentResponse> UpdateAsync(int id, AppointmentRequest appointmentsRequest, CancellationToken cancellationToken = default);
+        Task CreateAsync(AppointmentRequest appointmentsRequest, CancellationToken cancellationToken = default);
+        Task<IEnumerable<AppointmentResponse>> GetAllAsync(CancellationToken cancellationToken = default);
+        Task<AppointmentResponse> GetByIdAsync(int id, CancellationToken cancellationToken = default);
     }
 }
