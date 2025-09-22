@@ -1,7 +1,7 @@
 
 namespace PETiario.PETiary.Application.Appointements.Dtos.Responses
 {
-    public class AppointmentsResponse
+    public class AppointmentResponse
     {
         public int Id { get; set; }
         public int PetName { get; set; }

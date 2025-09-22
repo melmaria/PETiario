@@ -12,11 +12,11 @@ namespace PETiario.PETiary.Domain.Pets.Entities
         public virtual double? Age { get; protected set; }
         public virtual GenderEnum Gender { get; protected set; }
         public virtual string Picture { get; protected set; }
-        public virtual int Owner { get; protected set; }
+        public virtual int IdOwner { get; protected set; }
 
         protected Pet() { }
 
-        public Pet(string name, SpeciesEnum species, string breed, double? age, GenderEnum gender, string picture, int owner)
+        public Pet(string name, SpeciesEnum species, string breed, double? age, GenderEnum gender, string picture, int idOwner)
         {
             SetName(name);
             SetSpecies(species);
@@ -24,12 +24,12 @@ namespace PETiario.PETiary.Domain.Pets.Entities
             SetAge(age);
             SetGender(gender);
             SetPicture(picture);
-            SetOwner(owner);
+            SetIdOwner(idOwner);
         }
 
-        public virtual void SetOwner(int owner)
+        public virtual void SetIdOwner(int idOwner)
         {
-            Owner = owner;
+            IdOwner = idOwner;
         }
 
         public virtual void SetPicture(string picture)

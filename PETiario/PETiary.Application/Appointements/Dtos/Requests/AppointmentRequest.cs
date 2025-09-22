@@ -1,7 +1,7 @@
 
 namespace PETiario.PETiary.Application.Appointements.Dtos.Requests
 {
-    public class AppointmentsRequest
+    public class AppointmentRequest
     {
         public int PetId { get; set; }
         public DateTime Date { get; set; }
